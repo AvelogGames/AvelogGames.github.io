@@ -146,3 +146,6 @@ google.com, pub-6752877807774825, DIRECT, f08c47fec0942fa0
 pubnative.net, 1009458, RESELLER, d641df8625486a7b
 taurusx.com, 70079, RESELLER
 zmaticoo.com, 5135195, RESELLER
+rubiconproject.com, 17062, RESELLER, 0bfd66d529a55807
+themediagrid.com, GODNC4, RESELLER, 35d5010d7789b49d
+triplelift.com, 95054, RESELLER, 6c33edb13117fd86
