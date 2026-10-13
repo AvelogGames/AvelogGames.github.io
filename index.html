@@ -24,11 +24,11 @@
     .page {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 56px 24px;
+      padding: 40px 24px;
     }
 
     .hero {
-      min-height: 420px;
+      padding: 24px 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -37,6 +37,21 @@
 
     .hero-content {
       max-width: 760px;
+    }
+
+    .hero-games {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .hero-games img {
+      display: block;
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.14);
     }
 
     .badge {
@@ -100,8 +115,8 @@
     }
 
     .section {
-      margin-top: 56px;
-      padding: 34px;
+      margin-top: 40px;
+      padding: 28px;
       border-radius: 28px;
       background: rgba(255, 255, 255, 0.75);
       border: 1px solid rgba(229, 231, 235, 0.9);
@@ -133,41 +148,49 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      border-radius: 28px;
-      padding: 22px;
+      border-radius: 22px;
+      padding: 18px;
       background: linear-gradient(145deg, #ffffff, #eef6ff);
       box-shadow: 0 20px 55px rgba(15, 23, 42, 0.11);
       border: 1px solid rgba(255, 255, 255, 0.9);
     }
 
+    .game-heading {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
     .game-icon {
-      width: 96px;
-      height: 96px;
-      border-radius: 24px;
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+      border-radius: 16px;
       object-fit: cover;
-      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.20);
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.16);
       background: linear-gradient(145deg, #86efac, #60a5fa);
     }
 
     .game-preview {
-      margin-top: 20px;
+      margin-top: 18px;
       width: 100%;
       aspect-ratio: 16 / 9;
-      border-radius: 22px;
+      border-radius: 14px;
       object-fit: contain;
       background: #e5e7eb;
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
     }
 
     .game-title {
-      margin-top: 20px;
-      font-size: 24px;
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.2;
       font-weight: 800;
       color: #111827;
     }
 
     .game-description {
-      margin-top: 10px;
+      margin-top: 16px;
       color: #4b5563;
       line-height: 1.55;
       font-size: 15px;
@@ -182,7 +205,11 @@
     }
 
     .small-link {
-      padding: 10px 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 13px;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
       border-radius: 12px;
       background: #f9fafb;
       border: 1px solid #e5e7eb;
@@ -192,15 +219,51 @@
       font-size: 14px;
     }
 
+    .small-link:hover,
+    .link-card:hover {
+      background: #ecfdf5;
+      border-color: #86efac;
+    }
+
+    a:focus-visible {
+      outline: 3px solid #2563eb;
+      outline-offset: 4px;
+    }
+
+    .about-section {
+      margin-top: 28px;
+    }
+
+    .public-files {
+      margin-top: 28px;
+      padding: 24px 0 0;
+      border: 0;
+      border-top: 1px solid #dbe3ec;
+      border-radius: 0;
+      background: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .public-files h2 {
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .public-files p {
+      font-size: 14px;
+    }
+
     .links {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 24px;
+      margin-top: 16px;
     }
 
     .link-card {
-      padding: 14px 18px;
+      padding: 11px 14px;
+      font-size: 14px;
       border-radius: 14px;
       background: #f9fafb;
       border: 1px solid #e5e7eb;
@@ -217,12 +280,14 @@
     }
 
     @media (max-width: 950px) {
-      .hero {
-        min-height: 360px;
+      .games-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .games-grid {
-        grid-template-columns: 1fr;
+      .game-card:last-child {
+        grid-column: 1 / -1;
+        width: calc((100% - 22px) / 2);
+        justify-self: center;
       }
 
       h1 {
@@ -231,6 +296,54 @@
 
       .subtitle {
         font-size: 18px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .page {
+        padding: 24px 16px;
+      }
+
+      .hero {
+        padding: 16px 0;
+      }
+
+      .hero-games img {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+      }
+
+      .section {
+        margin-top: 28px;
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .games-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+      }
+
+      .game-card:last-child {
+        grid-column: auto;
+        width: 100%;
+      }
+
+      .public-files {
+        padding: 24px 0 0;
+        border-radius: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .button,
+      .small-link {
+        transition: none;
+      }
+
+      .button:hover {
+        transform: none;
       }
     }
   </style>
@@ -252,6 +365,12 @@
           <a class="button primary" href="#games">View Games</a>
           <a class="button secondary" href="mailto:aveloggames@gmail.com">aveloggames@gmail.com</a>
         </div>
+
+        <div class="hero-games">
+          <a href="#squirrel" aria-label="Explore Squirrel Simulator"><img src="images/squirrel-game-icon.png" alt="" width="64" height="64" /></a>
+          <a href="#cat" aria-label="Explore Cat Simulator"><img src="images/cat-game-icon.png" alt="" width="64" height="64" /></a>
+          <a href="#mouse" aria-label="Explore Mouse Simulator"><img src="images/mouse-game-icon.png?v=20261013" alt="" width="64" height="64" /></a>
+        </div>
       </div>
     </section>
 
@@ -262,10 +381,12 @@
       </p>
 
       <div class="games-grid">
-        <div class="game-card">
-          <img class="game-icon" src="images/squirrel-game-icon.png" alt="Squirrel Simulator icon" />
+        <div class="game-card" id="squirrel">
+          <div class="game-heading">
+            <img class="game-icon" src="images/squirrel-game-icon.png" alt="Squirrel Simulator icon" width="56" height="56" />
+            <h3 class="game-title">Squirrel Simulator</h3>
+          </div>
           <img class="game-preview" src="images/squirrel-game-screenshot.jpg" alt="Squirrel Simulator screenshot" />
-          <div class="game-title">Squirrel Simulator</div>
           <div class="game-description">
             Become a squirrel, climb giant trees, collect food, build a cozy nest,
             and survive in a colorful forest world.
@@ -279,10 +400,12 @@
           </div>
         </div>
 
-        <div class="game-card">
-          <img class="game-icon" src="images/cat-game-icon.png" alt="Cat Simulator icon" />
+        <div class="game-card" id="cat">
+          <div class="game-heading">
+            <img class="game-icon" src="images/cat-game-icon.png" alt="Cat Simulator icon" width="56" height="56" />
+            <h3 class="game-title">Cat Simulator</h3>
+          </div>
           <img class="game-preview" src="images/cat-game-screenshot.png" alt="Cat Simulator screenshot" />
-          <div class="game-title">Cat Simulator</div>
           <div class="game-description">
             Become a cat and explore a cozy family farm with open fields, village life, and daily adventures.
             Complete quests, grow stronger, build a family, and enjoy life from a cat’s perspective.
@@ -295,10 +418,12 @@
           </div>
         </div>
 
-        <div class="game-card">
-          <img class="game-icon" src="images/mouse-game-icon.png" alt="Mouse Simulator icon" />
+        <div class="game-card" id="mouse">
+          <div class="game-heading">
+            <img class="game-icon" src="images/mouse-game-icon.png?v=20261013" alt="Mouse Simulator icon" width="56" height="56" />
+            <h3 class="game-title">Mouse Simulator</h3>
+          </div>
           <img class="game-preview" src="images/mouse-game-screenshot.jpg" alt="Mouse Simulator screenshot" />
-          <div class="game-title">Mouse Simulator</div>
           <div class="game-description">
             Live as a tiny mouse in the forest and cottage. Collect resources, build your home,
             create a family, and sneak through the world from a small animal’s perspective.
@@ -312,7 +437,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section about-section">
       <h2>About</h2>
       <p>
         Avelog Games is an independent mobile game developer creating accessible animal simulator games
@@ -321,7 +446,7 @@
       </p>
     </section>
 
-    <section class="section">
+    <section class="section public-files">
       <h2>Public Files</h2>
       <p>
         Useful public information for advertising platforms and partners.
